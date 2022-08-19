@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="currency"
+            type="com.example.exchangerates.models.Currency" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/parent_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/card_background"
+        android:elevation="10dp"
+        android:outlineAmbientShadowColor="#64CB41"
+        android:outlineSpotShadowColor="#64CB41"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_usd_icon"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_regular"
+            android:text='@{currency.date.substring(0,2)+"."+currency.date.substring(3,5)+"."+currency.date.substring(6,10)}'
+            android:textColor="@color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sale_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text='@{currency.nbu_cell_price != null?currency.nbu_cell_price.toString():"mavjud emas"}'
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/parent_2"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/buy_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text='@{currency.nbu_buy_price != null?currency.nbu_buy_price.toString():"mavjud emas"}'
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv2" />
+
+        <TextView
+            android:id="@+id/label_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Olinishi"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/label_sale"
+            app:layout_constraintRight_toRightOf="@id/date" />
+
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text='@{currency.nbu_cell_price != null?" UZS":""}'
+            android:textColor="@color/white"
+            app:layout_constraintBaseline_toBaselineOf="@id/sale_price"
+            app:layout_constraintLeft_toRightOf="@id/sale_price" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text='@{currency.nbu_cell_price != null?" UZS":""}'
+            android:textColor="@color/white"
+            app:layout_constraintBaseline_toBaselineOf="@id/buy_price"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/label_sale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Sotilishi"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/sale_price"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

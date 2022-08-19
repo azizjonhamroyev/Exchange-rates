@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="currency"
+            type="com.example.exchangerates.models.Currency" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:cardCornerRadius="15dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/flag_usd"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/country_code"
+                app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                app:layout_constraintTop_toTopOf="@id/country_code" />
+
+            <TextView
+                android:id="@+id/country_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text='@{currency.title}'
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/flag_usd"
+                app:layout_constraintTop_toTopOf="@id/parent_2" />
+
+            <TextView
+                android:id="@+id/buy_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Sotib olish"
+                app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                app:layout_constraintTop_toBottomOf="@id/country_code" />
+
+            <TextView
+                android:id="@+id/buy_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text='@{currency.nbu_buy_price != null?currency.nbu_buy_price.toString()+" UZS":"mavjud emas"}'
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                app:layout_constraintRight_toLeftOf="@id/sale_price"
+                app:layout_constraintTop_toBottomOf="@id/buy_label" />
+
+            <TextView
+                android:id="@+id/sale_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sotish"
+                app:layout_constraintBottom_toTopOf="@id/sale_price"
+                app:layout_constraintLeft_toLeftOf="@id/sale_price" />
+
+            <TextView
+                android:id="@+id/sale_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text='@{currency.nbu_cell_price != null?currency.nbu_cell_price.toString()+" UZS":"mavjud emas"}'
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/buy_price"
+                app:layout_constraintLeft_toRightOf="@id/buy_price"
+                app:layout_constraintRight_toLeftOf="@id/calculate_btn"
+                app:layout_constraintRight_toRightOf="@id/parent_2" />
+
+            <ImageButton
+                android:id="@+id/calculate_btn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/calculate_b"
+                android:src="@drawable/ic_calculator_unselected"
+                app:layout_constraintBottom_toBottomOf="@id/parent_2"
+                app:layout_constraintLeft_toRightOf="@id/sale_price"
+                app:layout_constraintRight_toRightOf="@id/parent_2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

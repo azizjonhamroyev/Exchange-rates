@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:padding="20dp"
+        tools:context=".ui.slideshow.SlideshowFragment">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/parent_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp">
+
+                <Spinner
+                    android:id="@+id/first_country_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/spinner_background"
+                    app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                    app:layout_constraintTop_toTopOf="@id/parent_2" />
+
+                <EditText
+                    android:id="@+id/value_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="0.0"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/first_country_spinner" />
+
+                <TextView
+                    android:id="@+id/symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/value_et"
+                    app:layout_constraintLeft_toLeftOf="@id/value_et" />
+
+                <ImageButton
+                    android:id="@+id/exchange_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/exchange_button_b"
+                    app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                    app:layout_constraintRight_toRightOf="@id/parent_2"
+                    app:layout_constraintTop_toBottomOf="@id/value_et"
+                    app:srcCompat="@drawable/ic_currency_cast" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="#28000000"
+                    app:layout_constraintBottom_toBottomOf="@id/exchange_btn"
+                    app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                    app:layout_constraintRight_toLeftOf="@id/exchange_btn"
+                    app:layout_constraintTop_toTopOf="@id/exchange_btn" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:background="#28000000"
+                    app:layout_constraintBottom_toBottomOf="@id/exchange_btn"
+                    app:layout_constraintLeft_toRightOf="@id/exchange_btn"
+                    app:layout_constraintRight_toRightOf="@id/parent_2"
+                    app:layout_constraintTop_toTopOf="@id/exchange_btn" />
+
+                <Spinner
+                    android:id="@+id/second_country_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/spinner_background"
+                    app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                    app:layout_constraintTop_toBottomOf="@id/exchange_btn" />
+
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@id/tv_1"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_1"
+                    app:layout_constraintTop_toBottomOf="@id/second_country_spinner" />
+
+                <TextView
+                    android:id="@+id/buy_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="10 530 UZS"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="@id/parent_2"
+                    app:layout_constraintRight_toLeftOf="@id/sale_price"
+                    app:layout_constraintRight_toRightOf="@id/parent_2"
+                    app:layout_constraintTop_toBottomOf="@id/tv_1" />
+
+                <TextView
+                    android:id="@+id/sale_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="10 535 UZS"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toRightOf="@id/buy_price"
+                    app:layout_constraintRight_toRightOf="@id/parent_2"
+                    app:layout_constraintTop_toBottomOf="@id/tv_2" />
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Sotib olish"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/buy_price"
+                    app:layout_constraintTop_toBottomOf="@id/second_country_spinner" />
+
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Sotish"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/sale_price"
+                    app:layout_constraintTop_toBottomOf="@id/second_country_spinner" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
